@@ -1,6 +1,18 @@
 import { Routes } from '@angular/router';
+import { AdminGuard } from './core/guards/admin.guard';
+import { LoginGuard } from './core/guards/login.guard';
 
 export const routes: Routes = [
-  { path: '', pathMatch: 'full', redirectTo: '/welcome' },
-  { path: 'welcome', loadChildren: () => import('./pages/welcome/welcome.routes').then(m => m.WELCOME_ROUTES) }
+  {
+    path: '',
+    canActivate: [LoginGuard],
+    loadChildren: () =>
+      import('./pages/login/login.routes').then((m) => m.LOGIN_ROUTES),
+  },
+  {
+    path: 'admin',
+    canActivateChild: [AdminGuard],
+    loadChildren: () =>
+      import('./module/admin.routes').then((m) => m.ADMIN_ROUTES),
+  },
 ];
