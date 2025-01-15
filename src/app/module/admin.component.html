@@ -42,14 +42,40 @@
     </ul>
   </nz-sider>
   <nz-layout>
-    <nz-header>
-      <div class="app-header">
+    <nz-header class="app-header">
+      <div class="header-content">
         <span class="header-trigger" (click)="isCollapsed = !isCollapsed">
           <nz-icon
             class="trigger"
             [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"
           />
         </span>
+
+        <div class="header-right">
+          <nz-space>
+            <nz-avatar
+              nzSize="large"
+              class="profile-avatar"
+              *nzSpaceItem
+            ></nz-avatar>
+            <span
+              class="profile-name"
+              *nzSpaceItem
+              nz-dropdown
+              [nzDropdownMenu]="menu"
+              nzPlacement="bottomLeft"
+              >System Administrator</span
+            >
+            <nz-icon nzType="down" nzTheme="outline" *nzSpaceItem></nz-icon>
+          </nz-space>
+        </div>
+        <nz-dropdown-menu #menu="nzDropdownMenu">
+          <ul nz-menu>
+            <li nz-menu-item>1st menu item length</li>
+            <li nz-menu-item>2nd menu item length</li>
+            <li nz-menu-item>3rd menu item length</li>
+          </ul>
+        </nz-dropdown-menu>
       </div>
     </nz-header>
     <nz-content>

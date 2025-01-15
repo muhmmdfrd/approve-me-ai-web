@@ -6,6 +6,7 @@ import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import { NzMenuModule } from 'ng-zorro-antd/menu';
 import { GlobalConst } from '../core/constants/global.constant';
+import { NzSpaceModule } from 'ng-zorro-antd/space';
 
 @Component({
   selector: 'app-admin',
@@ -19,6 +20,7 @@ import { GlobalConst } from '../core/constants/global.constant';
     NzDropDownModule,
     NzIconModule,
     NzAvatarModule,
+    NzSpaceModule,
   ],
   styleUrls: ['./admin.component.css'],
 })
